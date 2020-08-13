@@ -1,0 +1,87 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+.MyAccountReturnDetails {
+    font-size: var(--font-size);
+
+    &-ExpandableContentHeading,
+    &-SubTitle {
+        text-transform: none;
+        font-weight: normal;
+        line-height: 1;
+        font-size: 17px;
+
+        @include after-mobile {
+            font-size: 20px;
+        }
+    }
+
+    &-CustomerAndAddressBlocks {
+        display: flex;
+
+        @include before-desktop {
+            flex-direction: column;
+        }
+
+        > * {
+            @include desktop {
+                flex: 1;
+            }
+        }
+
+        >:first-child {
+            @include before-desktop {
+                margin-bottom: 15px;
+            }
+
+            @include desktop {
+                margin-right: 15px;
+            }
+        }
+    }
+
+    .MyAccountNewReturnItemSelect-Title {
+        margin-top: 30px;
+
+        @include after-mobile {
+            margin-top: 45px;
+        }
+    }
+
+    .MyAccount-Heading {
+        @include mobile {
+            display: block;
+            margin-top: 14px;
+            font-size: 17px;
+            margin: 0 0 10px;
+        }
+    }
+
+    .ExpandableContent {
+        &-Button {
+            &::after {
+                align-items: center;
+                bottom: 0;
+                content: '\002B';
+                display: flex;
+                pointer-events: none;
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            &_isContentExpanded::after {
+                content: '\002D';
+            }
+        }
+    }
+}

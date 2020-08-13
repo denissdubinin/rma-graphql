@@ -1,0 +1,145 @@
+#/**
+# * ScandiPWA - Progressive Web App for Magento
+# *
+# * Copyright © Scandiweb, Inc. All rights reserved.
+# * See LICENSE for license details.
+# *
+# * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+# * @package scandipwa/base-theme
+# * @link https://github.com/scandipwa/base-theme
+# */
+
+type Mutation {
+    createReturnRequest(input: CreateReturnInput!): CreateReturnOutput @resolver(class: "ScandiPWA\\RmaGraphQl\\Model\\Resolver\\CreateNewRequest")
+    sendRmaComment(input: SendRmaCommentInput!): ReturnCommentsType @resolver(class: "ScandiPWA\\RmaGraphQl\\Model\\Resolver\\SendRmaComment")
+}
+
+type Query {
+    getRmaConfiguration : RmaConfiguration @resolver(class: "ScandiPWA\\RmaGraphQl\\Model\\Resolver\\Config")
+    getReturnList: [ReturnListEntry] @resolver(class: "ScandiPWA\\RmaGraphQl\\Model\\Resolver\\ReturnsForUser")
+    getReturnDetailsById(return_id: Int): ReturnDetails @resolver(class: "ScandiPWA\\RmaGraphQl\\Model\\Resolver\\ReturnDetails")
+}
+
+type Order {
+    base_order_info: BaseOrderInfo
+}
+
+interface ProductInterface {
+    qty: Int
+    order_item_id: String
+    qty_available_to_return: Float
+}
+
+type BaseOrderInfo {
+    id: Int
+    total_qty_ordered: Int
+    increment_id: String
+    created_at: String
+    status: String
+    status_can_be_returned: Boolean @resolver(class: "ScandiPWA\\RmaGraphQl\\Model\\Resolver\\StatusCanBeReturned")
+    status_label: String
+    grand_total: Float
+    sub_total: Float
+}
+
+type ShippingInfo {
+    tracking: [ReturnTrackingInfoType]
+}
+
+type ReturnTrackingInfoType {
+    carrier_title: String
+    track_number: String
+}
+
+type RmaConfiguration {
+    reasons: [ReturnReason]
+    conditions: [ReturnItemCondition]
+    resolutions: [ReturnResolution]
+}
+
+type ReturnDetails {
+    date_requested: String
+    entity_id: String
+    increment_id: String
+    order_id: String
+    order_increment_id: String
+    status: String
+    items: [ReturnItemDetails]
+    shipping_info: ShippingInfo
+    comments: [ReturnCommentsType]
+}
+
+type ReturnCommentsType {
+    comment: String
+    created_at: String
+    is_admin: String
+}
+
+type ReturnItemDetails {
+    condition: String
+    entity_id: String
+    is_qty_decimal: String
+    order_item_id: String
+    product_name: String
+    product_sku: String
+    product_options: String
+    qty_approved: String
+    qty_authorized: String
+    qty_requested: String
+    qty_returned: String
+    reason: String
+    resolution: String
+    rma_entity_id: String
+    status: String
+    order_products: [ProductInterface] @resolver(class: "\\ScandiPWA\\QuoteGraphQl\\Model\\Resolver\\ProductResolver")
+}
+
+type ReturnListEntry {
+    customer_id: String
+    customer_name: String
+    date_requested: String
+    entity_id: String
+    increment_id: String
+    order_date: String
+    order_increment_id: String
+    status: String
+    store_id: String
+}
+
+input CreateReturnInput {
+    order_id: String!
+    items: [ReturnItemInput]!
+    message: String
+}
+
+type CreateReturnOutput {
+    return_id: String
+}
+
+input ReturnItemInput {
+    order_item_id: Int!
+    qty_requested: Float!
+    condition: Int!
+    reason: Int!
+    resolution: Int!
+}
+
+type ReturnReason {
+    value: Int
+    label: String
+}
+
+type ReturnItemCondition {
+    value: Int
+    label: String
+}
+
+type ReturnResolution {
+    value: Int
+    label: String
+}
+
+input SendRmaCommentInput {
+    request_id: String!
+    comment: String!
+}

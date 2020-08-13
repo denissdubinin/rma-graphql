@@ -1,0 +1,100 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+.MyAccountReturnDetailsItems {
+    &-ReasonItemTitle {
+        font-weight: bold;
+    }
+
+    &-ReasonBlock {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        font-size: 14px;
+
+        @include before-desktop {
+            margin-bottom: 15px;
+        }
+    }
+
+    &-ReasonBlockStatus {
+        font-weight: bold;
+        flex: 1;
+
+        @include after-mobile {
+            text-align: right;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    }
+
+    &-ItemDetails {
+        align-self: self-start;
+        flex-direction: column;
+        flex: 1;
+
+        @include before-desktop {
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin: 0;
+            line-height: 1.3;
+        }
+    }
+
+    &-ItemAttributes {
+        padding-top: 10px;
+    }
+
+    .CartItem {
+        &-Wrapper {
+            padding-left: 0;
+            padding-right: 0;
+            flex: 1;
+            grid-template-columns: 110px auto;
+        }
+
+        &-Content {
+            flex-direction: column;
+            padding-bottom: 0;
+
+            @include before-desktop {
+                align-items: flex-start;
+            }
+
+            @include desktop {
+                flex-direction: row;
+            }
+
+            > * {
+                @include before-desktop {
+                    max-height: max-content;
+                }
+
+                @include desktop {
+                    height: 100%;
+                }
+            }
+        }
+
+        &-Picture {
+            @include after-mobile {
+                height: 160px;
+            }
+        }
+    }
+
+    &-Attributes {
+        padding-top: 10px;
+    }
+}

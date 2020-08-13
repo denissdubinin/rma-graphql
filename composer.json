@@ -1,0 +1,33 @@
+{
+	"name": "scandipwa/rma-graphql",
+	"description": "RMA for ScandiPWA",
+	"version": "1.0.0",
+	"type": "library",
+	"license": "OSL-3.0",
+	"keywords": [
+		"scandipwa",
+		"rma",
+		"graphql"
+	],
+	"support": {
+		"email": "info@scandiweb.com"
+	},
+	"authors": [
+		{
+			"name": "Deniss Dubinins",
+			"email": "denissd@scandipwa.com"
+		}
+	],
+	"require": {
+		"magento/magento2-base": "^2.3",
+		"magento/module-rma": "^101.1"
+	},
+	"autoload": {
+		"files": [
+			"src/registration.php"
+		],
+		"psr-4": {
+			"ScandiPWA\\RmaGraphQl\\": "src/"
+		}
+	}
+}

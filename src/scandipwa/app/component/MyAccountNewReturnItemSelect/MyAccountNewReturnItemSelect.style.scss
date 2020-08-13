@@ -1,0 +1,184 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+.MyAccountNewReturnItemSelect {
+    &-Title {
+        text-transform: none;
+        font-weight: normal;
+        line-height: 1;
+        font-size: 17px;
+
+        @include before-desktop {
+            margin-top: 20px;
+        }
+
+        @include desktop {
+            font-size: 20px;
+        }
+    }
+
+    &-ItemWrapper {
+        display: flex;
+        padding: 15px 0;
+        border-bottom: solid 1px #ebebea;
+
+        @include before-desktop {
+            flex-direction: column;
+        }
+
+        .CartItem-Wrapper {
+            order: 2;
+        }
+    }
+
+    &-ItemInnerWrapper {
+        display: flex;
+        padding: 15px 0;
+
+        @include before-desktop {
+            flex-direction: column;
+        }
+
+        > div {
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+    }
+
+    &-ItemField {
+        flex: 1;
+        flex-basis: 30px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        order: 1;
+        margin: 0;
+        height: max-content;
+
+        @include desktop {
+            margin-top: 10px;
+        }
+
+        &_isDisabled {
+            &[type='checkbox']:disabled + label {
+                &:last-of-type {
+                    cursor: not-allowed;
+                    border: 1px solid var(--input-border-color);
+                }
+            }
+        }
+
+        label {
+            font-weight: normal;
+        }
+
+        label:first-of-type {
+            padding-left: 16px;
+        }
+
+        label:last-of-type {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    &-ReasonBlockWrapper {
+        padding: 20px 30px;
+        border: solid 2px var(--primary-base-color);
+
+        @include desktop {
+            margin-left: auto;
+            order: 3;
+            width: 45%;
+            max-width: 400px;
+        }
+    }
+
+    &-SelectWrapper {
+        &:not(:first-of-type) {
+            margin-top: 20px;
+        }
+    }
+
+    &-SelectTitle {
+        font-size: 14px;
+        font-weight: bold;
+
+        @include desktop {
+            font-size: 16px;
+        }
+    }
+
+    &-SelectInput {
+        margin-top: 5px;
+
+        .Field-Select {
+            @include before-desktop {
+                font-size: var(--input-mobile-size);
+            }
+        }
+    }
+
+    &-QtyBlockWrapper {
+        font-size: var(--font-size);
+
+        .Field_type_number {
+            display: inline-block;
+            margin: 0 5px;
+
+            &.Field_hasError {
+                margin-bottom: 10px;
+
+                .Field-Message {
+                    position: absolute;
+                }
+
+                button {
+                    &:last-of-type {
+                        bottom: 0;
+                    }
+                }
+            }
+
+            input {
+                font-size: var(--font-size);
+            }
+
+            button {
+                @include before-desktop {
+                    width: unset;
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+
+    &-ItemImagePlaceholder {
+        &::after {
+            height: 160px;
+            display: inline-block;
+            width: 110px;
+            margin: 25px 1rem 25px 0;
+        }
+    }
+
+    &-ReasonBlockRuleTitle,
+    &-ReasonBlockRule {
+        font-size: var(--font-size);
+        display: block;
+    }
+
+    &-ReasonBlockRuleTitle {
+        font-size: 17px;
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,92 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+.MyAccountReturnDetailsChatMessages {
+    &-TextBlockMessengerName,
+    &-AdditionalContentDate {
+        color: #b0adad;
+    }
+
+    &-AdditionalContentDateWrapper {
+        display: inline-block;
+        position: unset;
+    }
+
+    &-AdditionalContentDatePlaceholder {
+        opacity: 0;
+    }
+
+    &-AdditionalContentDate {
+        position: absolute;
+        right: 0;
+    }
+
+    &-TextBlockWrapper {
+        width: 90%;
+
+        @include after-mobile {
+            width: 60%;
+        }
+
+        &_isRightSide {
+            align-self: flex-end;
+        }
+    }
+
+    &-TextBlockMessengerName {
+        margin-top: 5px;
+        display: block;
+
+        &_isRightSide {
+            text-align: right;
+        }
+    }
+
+    &-TextBlockMessageWrapper {
+        border-radius: 12px;
+        background-color: #ececec;
+        padding: 10px 10px 10px 20px;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &_isRightSide {
+            background-color: #dbdbdb;
+        }
+    }
+
+    &-TextBlockMessage {
+        overflow-wrap: break-word;
+        margin-bottom: 25px;
+    }
+
+    &-ChatWrapper {
+        display: flex;
+        flex-direction: column;
+        max-height: 300px;
+        overflow: scroll;
+
+        @include after-mobile {
+            max-height: 400px;
+        }
+    }
+
+    &-FileListWrapper {
+        display: inline-block;
+    }
+
+    &-FileName {
+        margin-right: 12px;
+        font-weight: bold;
+        display: block;
+    }
+}

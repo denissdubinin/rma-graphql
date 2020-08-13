@@ -1,0 +1,143 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+.MyAccountNewReturn {
+    .amrma-attach {
+        display: none;
+    }
+
+    &-CustomerAndAddressBlocks {
+        display: flex;
+
+        @include before-desktop {
+            flex-direction: column;
+        }
+
+        > * {
+            @include desktop {
+                flex: 1;
+            }
+        }
+    }
+
+    &-Actions {
+        margin-top: 20px;
+
+        @include before-desktop {
+            display: flex;
+        }
+
+        @include desktop {
+            margin-top: 20px;
+        }
+
+        button {
+            display: inline-block;
+
+            &:first-of-type {
+                margin-right: 10px;
+
+                @include before-desktop {
+                    flex: 1
+                }
+
+                @include desktop {
+                    margin-right: 20px;
+                    max-width: 350px;
+                    width: 100%;
+                }
+            }
+
+            &:last-of-type {
+                @include before-desktop {
+                    width: max-content;
+                }
+            }
+        }
+    }
+
+    &-MessageTitle {
+        font-size: 17px;
+        font-weight: normal;
+        margin-top: 20px;
+        text-transform: none;
+
+        @include desktop {
+            font-size: 20px;
+            margin-top: 45px;
+        }
+    }
+
+    &-MessageAdditionalInfo {
+        margin: 5px 0;
+        font-style: italic;
+
+        @include desktop {
+            margin-top: 15px;
+        }
+    }
+
+    &-MessageTextArea {
+        textarea {
+            font-size: var(--font-size);
+            height: 120px;
+            width: 100%;
+
+            @include after-mobile {
+                height: 150px;
+            }
+        }
+    }
+
+    &-MessageAttachmentButton {
+        align-items: center;
+        display: flex;
+        font-size: var(--font-size);
+        margin-top: 10px;
+
+        svg {
+            height: 20px;
+            margin-right: 5px;
+            width: 20px;
+        }
+    }
+
+    &-CustomerAndAddressBlocks {
+        display: flex;
+
+        @include before-desktop {
+            flex-direction: column;
+        }
+
+        > * {
+            @include desktop {
+                flex: 1;
+            }
+        }
+
+        >:first-child {
+            @include before-desktop {
+                margin-bottom: 15px;
+            }
+
+            @include desktop {
+                margin-right: 15px;
+            }
+        }
+    }
+
+    .MyAccount-Heading {
+        @include mobile {
+            font-size: 17px;
+            margin-top: 14px;
+        }
+    }
+}
